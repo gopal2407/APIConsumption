@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+    <title>Data</title>
+    {% endblock %}
+    {% block content %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>QUOTE</th>
+            <th>AUTHOR</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in objects_list %}
+        <tr>
+            <td>{{object.id}}</td>
+            <td>{{object.quote}}</td>
+            <td>{{object.author}}</td>
+            <td><a href="{% url 'quotes_update_url' object.id %}" class="btn btn-primary">Update</a></td>
+            <td><a href="{% url 'quotes_delete_url' object.id %}" class="btn btn-warning">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    {% endblock %}

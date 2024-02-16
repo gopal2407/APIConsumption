@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h1>Do you really  want quotes <span style="color:red">{{ obj.quote }}</span></h1>
+    <button class="btn btn-primary" type="submit">Yes</button>
+    <a class="btn btn-warning" href="{% url 'quotes_data_url' %}">No</a>
+</form>
+{% endblock %}
